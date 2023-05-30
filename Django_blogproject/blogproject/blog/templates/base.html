@@ -26,6 +26,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="https://www.youtube.com/">🎵</a>
             </li>
+            {% if not user.is_authenticated %} 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">로그인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+            </li>
+            {% endif %} 
+            {% if user.is_authenticated %} 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+            </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link disabled">🌈</a>
             </li>
